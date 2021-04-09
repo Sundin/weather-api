@@ -22,3 +22,10 @@ Start the development server (you can also run it through your IDE):
 
     dotnet run --project WeatherApi
 
+## Publish container
+
+In order to publish the container to Github Container Registry, you first need to enable the [Github Container Registry feature preview](https://docs.github.com/en/packages/guides/enabling-improved-container-support).
+
+Next, create a Personal Access Token on Github with the `repo` and `write:packages` scopes. Add it as a Github Secret named `GH_REGISTRY_TOKEN`.
+
+The Github Actions release pipeline will now be able to automatically
