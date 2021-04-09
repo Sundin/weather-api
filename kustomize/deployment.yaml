@@ -28,7 +28,7 @@ spec:
               protocol: TCP
           env:
             - name: ASPNETCORE_URLS
-              value: http://+:5000;https://+:5001;https://+:443;http://+:80
+              value: http://+:5000
           resources:
             limits:
               cpu: 2000m

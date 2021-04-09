@@ -36,3 +36,4 @@ After you have pushed the image for the first time, you need to go to to Package
 
     kubectl get pods
     kubectl describe pods ${POD_NAME}
+    kubectl logs ${POD_NAME} ${CONTAINER_NAME}
