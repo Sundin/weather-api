@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace ImageApi.Controllers
+namespace WeatherApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -27,11 +27,11 @@ namespace ImageApi.Controllers
         {
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-                {
-                    Date = DateTime.Now.AddDays(index),
-                    TemperatureC = rng.Next(-20, 55),
-                    Summary = Summaries[rng.Next(Summaries.Length)] + "!"
-                })
+            {
+                Date = DateTime.Now.AddDays(index),
+                TemperatureC = rng.Next(-20, 55),
+                Summary = Summaries[rng.Next(Summaries.Length)] + "!"
+            })
                 .ToArray();
         }
     }
