@@ -19,9 +19,6 @@ spec:
         app: weather-api
     spec:
       containers:
-        - env:
-            - name: ASPNETCORE_URLS
-              value: http://localhost:5000
         - name: weather-api
           image: ghcr.io/sundin/weather-api:latest
           imagePullPolicy: IfNotPresent
@@ -29,6 +26,9 @@ spec:
             - name: http
               containerPort: 5000
               protocol: TCP
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://localhost:5000
           resources:
             limits:
               cpu: 2000m
