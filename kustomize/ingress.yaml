@@ -8,5 +8,5 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: podinfo
-              servicePort: 9898
+              serviceName: weather-api
+              servicePort: 5000

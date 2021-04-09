@@ -8,7 +8,7 @@ Make sure you have Docker installed.
 
 Build and run the container:
 
-    docker build -t weather-api . -f WeatherApi/Dockerfile && docker run weather-api
+    docker build -t weather-api . -f WeatherApi/Dockerfile && docker run -e ASPNETCORE_URLS='http://localhost:5000' weather-api
 
 ## Getting started - without Docker
 
@@ -28,4 +28,11 @@ In order to publish the container to Github Container Registry, you first need t
 
 Next, create a Personal Access Token on Github with the `repo` and `write:packages` scopes. Add it as a Github Secret named `GH_REGISTRY_TOKEN`.
 
-The Github Actions release pipeline will now be able to automatically
+The Github Actions release pipeline will now be able to automatically.
+
+After you have pushed the image for the first time, you need to go to to Packages under your Github Profile, and change the package's visibility to Public.
+
+## Troubleshoot
+
+    kubectl get pods
+    kubectl describe pods ${POD_NAME}
