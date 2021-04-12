@@ -10,9 +10,13 @@ You might need to install development certificates for HTTPS (make sure you have
 
     dotnet dev-certs https --trust
 
-Build and run the container (you can also run the container through your IDE):
+Build the container:
 
-     docker build -t weather-api . -f WeatherApi/Dockerfile && docker run -e HTTP_PORT=8000 -p 8000:8000 weather-api
+     docker build -t weather-api . -f WeatherApi/Dockerfile
+
+Run the container:
+
+     docker run -p 8000:8000 -e HTTP_PORT=8000 -e "ASPNETCORE_ENVIRONMENT=Development" weather-api
 
 You can now access the API:
 
