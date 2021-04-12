@@ -6,21 +6,17 @@ This is an example repo to get started with Kubernetes Pods.
 
 Make sure you have Docker installed.
 
-Build and run the container:
-
-    docker build -t weather-api . -f WeatherApi/Dockerfile && docker run -e ASPNETCORE_URLS='http://localhost:5000' weather-api
-
-## Getting started - without Docker
-
-Make sure you have [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0) or newer installed.
-
-Install development certificates for HTTPS:
+You might need to install development certificates for HTTPS (make sure you have [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0) or newer installed):
 
     dotnet dev-certs https --trust
 
-Start the development server (you can also run it through your IDE):
+Build and run the container (you can also run the container through your IDE):
 
-    dotnet run --project WeatherApi
+     docker build -t weather-api . -f WeatherApi/Dockerfile && docker run -e HTTP_PORT=8000 -p 8000:8000 weather-api
+
+You can now access the API:
+
+    curl -X GET "http://localhost:8000/WeatherForecast" -H  "accept: text/plain"
 
 ## Publish container
 

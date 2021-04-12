@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using System;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
 namespace WeatherApi
@@ -14,7 +15,10 @@ namespace WeatherApi
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.ConfigureKestrel(o =>
+                    {
+                        o.ListenAnyIP(Int32.Parse(Environment.GetEnvironmentVariable("HTTP_PORT")));
+                    }).UseStartup<Startup>();
                 });
     }
 }
