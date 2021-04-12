@@ -26,9 +26,11 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
-          # env:
-          #   - name: ASPNETCORE_URLS
-          #     value: http://localhost:5000
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+            - name: HTTP_PORT
+              value: 5000
           resources:
             limits:
               cpu: 2000m
