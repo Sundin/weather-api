@@ -20,6 +20,8 @@ FROM base AS final
 
 USER 1000
 
+ENV COMPlus_EnableDiagnostics=0
+
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "WeatherApi.dll"]
