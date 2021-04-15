@@ -21,6 +21,7 @@ FROM base AS final
 USER 1000
 
 ENV COMPlus_EnableDiagnostics=0
+ENV CORECLR_ENABLE_PROFILING=0
 
 WORKDIR /app
 COPY --from=publish /app/publish .
