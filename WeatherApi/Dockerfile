@@ -17,6 +17,9 @@ FROM build AS publish
 RUN dotnet publish "WeatherApi.csproj" -c Release -o /app/publish
 
 FROM base AS final
+
+USER 1000
+
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "WeatherApi.dll"]
