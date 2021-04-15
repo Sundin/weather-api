@@ -18,11 +18,14 @@ RUN dotnet publish "WeatherApi.csproj" -c Release -o /app/publish
 
 FROM base AS final
 
-USER 1000
-
 ENV COMPlus_EnableDiagnostics=0
 ENV CORECLR_ENABLE_PROFILING=0
 
 WORKDIR /app
 COPY --from=publish /app/publish .
+
+RUN useradd -r -u 1000 appuser 
+RUN chown -R appuser /app
+USER appuser
+
 ENTRYPOINT ["dotnet", "WeatherApi.dll"]
